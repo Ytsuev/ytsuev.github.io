@@ -1,0 +1,168 @@
+<head>
+    <script>
+        function validateForm()                                    
+{ 
+    var name = document.forms["myForm"]["name"];               
+    var email = document.forms["myForm"]["email"];    
+    var message = document.forms["myForm"]["message"];   
+   
+    if (name.value == "")                                  
+    { 
+        document.getElementById('errorname').innerHTML="Veuillez entrez un nom valide";  
+        name.focus(); 
+        return false; 
+    }else{
+        document.getElementById('errorname').innerHTML="";  
+    }
+       
+    if (email.value == "")                                   
+    { 
+        document.getElementById('erroremail').innerHTML="Veuillez entrez une adresse mail valide"; 
+        email.focus(); 
+        return false; 
+    }else{
+        document.getElementById('erroremail').innerHTML="";  
+    }
+   
+    if (email.value.indexOf("@", 0) < 0)                 
+    { 
+        document.getElementById('erroremail').innerHTML="Veuillez entrez une adresse mail valide"; 
+        email.focus(); 
+        return false; 
+    } 
+   
+    if (email.value.indexOf(".", 0) < 0)                 
+    { 
+        document.getElementById('erroremail').innerHTML="Veuillez entrez une adresse mail valide"; 
+        email.focus(); 
+        return false; 
+    } 
+   
+    if (message.value == "")                           
+    {
+        document.getElementById('errormsg').innerHTML="Veuillez entrez un message valide"; 
+        message.focus(); 
+        return false; 
+    }else{
+        document.getElementById('errormsg').innerHTML="";  
+    }
+   
+    return true; 
+}
+    </script>
+    <title>Contact - Steeve Guidé</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="cv.css">
+</head>
+<body>
+    <header>
+        <h1>CV de Steeve Guidé
+        </h1>
+        <script>  
+            function changeColor(color) { 
+                document.body.style.background = color; 
+            }
+        </script>
+        <div class="button">
+        <button id="white" onclick = "changeColor('white');">Blanc</button>
+        <button id="grey" onclick = "changeColor('grey');">Gris</button> 
+        <button id="black" onclick = "changeColor('black');">Noir</button>
+        <button id="blue" onclick = "changeColor('#0B7EBF');">Bleu</button>
+        </div>
+    </header>
+    
+    <section>
+        <div class="photo">
+            <img src="./images/steeve.jpg" alt="Ma photo de profil">
+        </div>
+        <div class="prez">
+            <h2>Qui suis-je ?</h2>
+            <p>Ancien vendeur dans une boutique de bricolage, je décide enfin de me reconvertir profesionnellement et de faire une formation en tant que
+                developpeur web chez OpenClassrooms.
+            </p>
+            <a href="#" download>Télécharger mon CV</a>
+        </div>
+        <div class="contact">
+            <h2>Informations de contact</h2>
+            <div class="contact-flex">
+                <p>Nom : </p>
+                <p>GUIDE Steeve</p>
+            </div>
+            <div class="contact-flex">
+                <p>Adresse : </p>
+                <p>2 rue du clos guinault - 91280 Saint-Pierre-du-Perray</p>
+            </div>
+            <div class="contact-flex">
+                <p>Téléphone :</p>
+                <p>06 34 69 34 71</p>
+            </div>
+            <div class="contact-flex">
+                <p>Mail : </p>
+                <p><a href="mailto:steeveguide@gmail.com">steeveguide@gmail.com</a></p>
+            </div>
+            </div>
+            <div class=prez>
+                <a href="index.html">Revenir au CV</a>
+            </div>
+            <div class="social">
+                <a href="https://openclassrooms.workplace.com/profile.php?id=100066953892956" target="_blank"><img src="./images/fb.png" alt="Logo Fb"></a>
+                <a href="https://twitter.com/Ytsuev" target="_blank"><img src="./images/tw.png" alt="Logo Tw"></a>
+                <a href="ytb.html"><img src="./images/yt.png" alt="Logo Yt"></a>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <form name="myForm" action="/file.php" onsubmit="return validateForm()" method="post">
+           <table class="form-style">
+              <tr>
+                 <td>
+                    <label>
+                       Votre nom <span class="required">*</span>
+                    </label>
+                 </td>
+                 <td>
+                    <input type="text" name="name" class="long"/>
+                    <span class="error" id="errorname"></span>
+                 </td>
+              </tr>
+              <tr>
+                 <td>
+                    <label>
+                       Votre adresse e-mail <span class="required">*</span>
+                    </label>
+                 </td>
+                 <td>
+                    <input type="email" name="email" class="long"/>
+                    <span class="error" id="erroremail"></span>
+                 </td>
+              </tr>
+              <tr>
+                 <td>
+                    <label>
+                       Message <span class="required">*</span>
+                    </label>
+                 </td>
+                 <td>
+                    <textarea name="message" class="long field-textarea"></textarea>
+                    <span class="error" id="errormsg"></span>
+                 </td>
+              </tr>
+              <tr>
+                 <td></td>
+                 <td>
+                    <input type="submit" value="Envoyer">      
+                    <input type="reset" value="Réinitialiser"> 
+                 </td>
+              </tr>
+           </table>
+        </form>
+        
+        </div>
+    </section>
+    
+    <footer>
+        <p><a href="https://www.ytsuev.github.io">©Steeve Guidé</a> 2021</p>
+    </footer>
